@@ -11,17 +11,20 @@
         <%= JSON.stringify(allBlogs) %> -->
 
         <div class="conatiner mt-5">
-            <div class="d-flex flex-column align-items-center gap-4">
-                <% allBlogs.forEach(blog => { %>
-                    <div class="card" style="width: 18rem;">
-                        <img src="<%= blog.coverImgURL %>" class="card-img-top" >
-                        <div class="card-body">
-                        <h5 class="card-title"><%= JSON.stringify(blog.title) %></h5>
-                        <p class="card-text"><%= JSON.stringify(blog.body) %></p>
-                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+            <div class="d-flex flex-column align-items-center ">
+                <div class="row row-cols-2 gap-5">
+                    <% allBlogs.forEach(blog => { %>
+                        <div class="card" style="width: 18rem;">
+                            <img src="<%= blog.coverImgURL %>" class="card-img-top" >
+                            <div class="card-body">
+                                <h5 class="card-title"><%= JSON.stringify(blog.title).substring(0, 50) %>...</h5>
+                                <p class="card-text"><%= JSON.stringify(blog.body).substring(0, 50) %>...</p>
+                                <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                            </div>
                         </div>
-                    </div>
-                <% }) %>
+                    <% }) %>
+                </div>
+               
             </div>
         </div>
 
