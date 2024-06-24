@@ -7,7 +7,24 @@
 <body>
     <%- include('./partials/nav') %>
         <h1>Hello From HomePage</h1>
-        <%= JSON.stringify(user) %>
+        <!-- <%= JSON.stringify(user) %>
+        <%= JSON.stringify(allBlogs) %> -->
+
+        <div class="conatiner mt-5">
+            <div class="d-flex flex-column align-items-center gap-4">
+                <% allBlogs.forEach(blog => { %>
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%= blog.coverImgURL %>" class="card-img-top" >
+                        <div class="card-body">
+                        <h5 class="card-title"><%= JSON.stringify(blog.title) %></h5>
+                        <p class="card-text"><%= JSON.stringify(blog.body) %></p>
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
     <%- include('./partials/scripts') %>
 </body>
 </html>
